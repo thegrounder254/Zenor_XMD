@@ -120,7 +120,7 @@ async function downloadLegacySession() {
         return false;
     }
 
-    const sessdata = config.SESSION_ID.split("CLOUD-AI~")[1];
+    const sessdata = config.SESSION_ID.split("Gifted~")[1];
 
     if (!sessdata || !sessdata.includes("#")) {
         console.error('âŒ Invalid SESSION_ID format! It must contain both file ID and decryption key.');
