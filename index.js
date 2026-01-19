@@ -52,25 +52,25 @@ if (!fs.existsSync(sessionDir)) {
 }
 
 async function loadGiftedSession() {
-    console.log("ðŸ” Checking SESSION_ID format...");
+    console.log("Checking SESSION_ID format...");
     
     if (!config.SESSION_ID) {
-        console.error('âŒ No SESSION_ID provided in config!');
+        console.error('No SESSION_ID provided in config!');
         return false;
     }
     
     // Check if session starts with "Gifted~"
     if (config.SESSION_ID.startsWith("Gifted~")) {
-        console.log("âœ… Detected Gifted session format (GZIP compressed)");
+        console.log("Detected Gifted session format (GZIP compressed)");
         
         // Extract Base64 part (everything after "Gifted~")
         const compressedBase64 = config.SESSION_ID.substring("Gifted~".length);
-        console.log("ðŸ“ Compressed Base64 length:", compressedBase64.length);
+        console.log("Compressed Base64 length:", compressedBase64.length);
         
         try {
             // Decode Base64
             const compressedBuffer = Buffer.from(compressedBase64, 'base64');
-            console.log("ðŸ”¤ Decoded buffer length:", compressedBuffer.length);
+            console.log("Decoded buffer length:", compressedBuffer.length);
             
             // Check if it's GZIP compressed
             if (compressedBuffer[0] === 0x1f && compressedBuffer[1] === 0x8b) {
@@ -81,33 +81,33 @@ async function loadGiftedSession() {
                 const decompressedBuffer = await gunzip(compressedBuffer);
                 const sessionData = decompressedBuffer.toString('utf-8');
                 
-                console.log("ðŸ“„ Decompressed session data (first 200 chars):");
+                console.log("Decompressed session data (first 200 chars):");
                 console.log(sessionData.substring(0, 200));
                 
                 // Try to parse as JSON
                 try {
                     const parsedSession = JSON.parse(sessionData);
-                    console.log("âœ… Successfully parsed JSON session");
-                    console.log("ðŸ“Š Session keys:", Object.keys(parsedSession));
+                    console.log("Successfully parsed JSON session");
+                    console.log("Session keys:", Object.keys(parsedSession));
                 } catch (parseError) {
-                    console.log("âš ï¸  Session data is not JSON, saving as raw string");
+                    console.log("Session data is not JSON, saving as raw string");
                 }
                 
                 // Save session to file
                 await fs.promises.writeFile(credsPath, sessionData);
-                console.log("ðŸ’¾ Session saved to file successfully");
+                console.log("Session saved to file successfully");
                 return true;
             } else {
-                console.log("âŒ Not a valid GZIP file (missing magic bytes)");
+                console.log("Not a valid GZIP file (missing magic bytes)");
                 return false;
             }
         } catch (error) {
-            console.error('âŒ Failed to process Gifted session:', error.message);
-            console.error('ðŸ” Error details:', error);
+            console.error('Failed to process Gifted session:', error.message);
+            console.error('Error details:', error);
             return false;
         }
     } else {
-        console.log("âš ï¸  SESSION_ID does not start with Gifted~");
+        console.log("SESSION_ID does not start with Gifted~");
         return false;
     }
 }
@@ -116,21 +116,21 @@ async function downloadLegacySession() {
     console.log("Debugging SESSION_ID:", config.SESSION_ID);
 
     if (!config.SESSION_ID) {
-        console.error('âŒ Please add your session to SESSION_ID env !!');
+        console.error('Please add your session to SESSION_ID env !!');
         return false;
     }
 
     const sessdata = config.SESSION_ID.split("Gifted~")[1];
 
     if (!sessdata || !sessdata.includes("#")) {
-        console.error('âŒ Invalid SESSION_ID format! It must contain both file ID and decryption key.');
+        console.error('Invalid SESSION_ID format! It must contain both file ID and decryption key.');
         return false;
     }
 
     const [fileID, decryptKey] = sessdata.split("#");
 
     try {
-        console.log("ðŸ”„ Downloading Legacy Session from Mega.nz...");
+        console.log("Downloading Legacy Session from Mega.nz...");
         const file = File.fromURL(`https://mega.nz/file/${fileID}#${decryptKey}`);
 
         const data = await new Promise((resolve, reject) => {
@@ -141,10 +141,10 @@ async function downloadLegacySession() {
         });
 
         await fs.promises.writeFile(credsPath, data);
-        console.log("ðŸ”’ Legacy Session Successfully Loaded !!");
+        console.log("Legacy Session Successfully Loaded !!");
         return true;
     } catch (error) {
-        console.error('âŒ Failed to download legacy session data:', error);
+        console.error('Failed to download legacy session data:', error);
         return false;
     }
 }
@@ -153,20 +153,20 @@ async function start() {
     try {
         const { state, saveCreds } = await useMultiFileAuthState(sessionDir);
         const { version, isLatest } = await fetchLatestBaileysVersion();
-        console.log(`ðŸ¤– JAWAD-MD using WA v${version.join('.')}, isLatest: ${isLatest}`);
+        console.log(`Buddy-XTR using WA v${version.join('.')}, isLatest: ${isLatest}`);
         
         const Matrix = makeWASocket({
             version,
             logger: pino({ level: 'silent' }),
             printQRInTerminal: useQR,
-            browser: ["JAWAD-MD", "safari", "3.3"],
+            browser: ["Buddy-XTR", "safari", "3.3"],
             auth: state,
             getMessage: async (key) => {
                 if (store) {
                     const msg = await store.loadMessage(key.remoteJid, key.id);
                     return msg.message || undefined;
                 }
-                return { conversation: " cloid ai whatsapp user bot" };
+                return { conversation: "whatsapp user bot" };
             }
         });
 
@@ -178,28 +178,19 @@ async function start() {
                 }
             } else if (connection === 'open') {
                 if (initialConnection) {
-                    console.log(chalk.green("Connected Successfully cloud Ai ðŸ¤"));
+                    console.log(chalk.green("Connected Successfully"));
                     Matrix.sendMessage(Matrix.user.id, { 
                         image: { url: "https://files.catbox.moe/pf270b.jpg" }, 
-                        caption: `*Hello there User! ðŸ‘‹ðŸ»* 
+                        caption: `*Bot Activated* 
 
-> Simple, Straightforward.
-
-*project By Community for community©* 
-
-> Join WhatsApp Channel: â¤µï¸  
-channel link
-
-- *YOUR PREFIX:* = ${prefix}
-
-Don't forget to give a star to the repo â¬‡ï¸  
-Locked by Carltech
+> Welcome to Zenor_XMD
+*Enjoy our New whatsapp Bot*
 
 > Thanks to Carl William`
                     });
                     initialConnection = false;
                 } else {
-                    console.log(chalk.blue("â™»ï¸ Connection reestablished after restart."));
+                    console.log(chalk.blue("Connection reestablished after restart."));
                 }
             }
         });
@@ -243,7 +234,7 @@ Locked by Carltech
                     await Matrix.readMessages([mek.key]);
                     
                     if (config.AUTO_STATUS_REPLY) {
-                        const customMessage = config.STATUS_READ_MSG || 'âœ… Auto Status Seen Bot By Zenor-XMD';
+                        const customMessage = config.STATUS_READ_MSG || 'Auto Status Seen Bot By Zenor-XMD';
                         await Matrix.sendMessage(fromJid, { text: customMessage }, { quoted: mek });
                     }
                 }
@@ -260,37 +251,37 @@ Locked by Carltech
 
 async function init() {
     if (fs.existsSync(credsPath)) {
-        console.log("ðŸ”’ Existing session file found, loading it...");
+        console.log("Existing session file found, loading it...");
         await start();
     } else {
-        console.log("ðŸ“ No existing session file, checking config.SESSION_ID...");
+        console.log("No existing session file, checking config.SESSION_ID...");
         
         if (config.SESSION_ID && config.SESSION_ID.startsWith("Gifted~")) {
-            console.log("ðŸ”„ Attempting to load Gifted session (GZIP compressed)...");
+            console.log("Attempting to load Gifted session (GZIP compressed)...");
             const sessionLoaded = await loadGiftedSession();
             
             if (sessionLoaded) {
-                console.log("âœ… Gifted session loaded successfully!");
+                console.log("session loaded successfully!");
                 await start();
             } else {
-                console.log("âŒ Failed to load Gifted session, falling back to QR code.");
+                console.log("Failed to load Gifted session, falling back to QR code.");
                 useQR = true;
                 await start();
             }
-        } else if (config.SESSION_ID && config.SESSION_ID.includes("CLOUD-AI~")) {
+        } else if (config.SESSION_ID && config.SESSION_ID.includes("Gifted~")) {
             console.log("ðŸ”„ Attempting to load legacy Mega.nz session...");
             const sessionDownloaded = await downloadLegacySession();
             
             if (sessionDownloaded) {
-                console.log("ðŸ”’ Legacy session downloaded, starting bot.");
+                console.log("Legacy session downloaded, starting bot.");
                 await start();
             } else {
-                console.log("âŒ Failed to download legacy session, using QR code.");
+                console.log("Failed to download legacy session, using QR code.");
                 useQR = true;
                 await start();
             }
         } else {
-            console.log("ðŸ“± No valid session found in config, QR code will be printed for authentication.");
+            console.log("No valid session found in config, QR code will be printed for authentication.");
             useQR = true;
             await start();
         }
