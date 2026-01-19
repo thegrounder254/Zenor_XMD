@@ -1,23 +1,18 @@
-FROM node:lts-alpine
+FROM node:lts-buster
 
-# Install system dependencies with correct Alpine package names
-RUN apk add --no-cache \
-    ffmpeg \
-    imagemagick \
-    libwebp \
-    bash
+RUN apt-get update && \
+  apt-get install -y \
+  ffmpeg \
+  imagemagick \
+  webp && \
+  apt-get upgrade -y && \
+  rm -rf /var/lib/apt/lists/*
 
-WORKDIR /usr/src/app
+COPY package.json .
 
-COPY package*.json ./
-
-RUN npm ci --only=production
+RUN npm install && npm install -g qrcode-terminal pm2
 
 COPY . .
-
-# Create and switch to non-root user (optional but recommended)
-RUN adduser -D -u 1001 appuser && chown -R appuser:appuser /usr/src/app
-USER appuser
 
 EXPOSE 3000
 
