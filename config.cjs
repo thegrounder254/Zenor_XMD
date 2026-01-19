@@ -3,8 +3,8 @@ require("dotenv").config();
 
 const config = {
   /* [SESSION CONFIGURATION] */
-  SESSION_ID: process.env.SESSION_ID || "Buddy;;;4IxXzZSD#vr0cAFNJs7jgkSFKWAZQx_2FC99m5jbCnCRSbV19vvg",
-  SESSION_NAME: process.env.SESSION_NAME || "Buddy;;;",
+  SESSION_ID: process.env.SESSION_ID || "paste session hapa",
+  SESSION_NAME: process.env.SESSION_NAME || "Gifted~",
   
   /* [BOT BASIC CONFIG] */
   PREFIX: process.env.PREFIX || '.',
