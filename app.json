@@ -2,12 +2,12 @@
   "name": "ZENOR TECH",
   "description": "Zenor_XMD by carl and Trevor.",
   "logo": "https://files.catbox.moe/waszph.jpg",
-  "keywords": ["CARL-TECH", "whatsapp-bot", "whatsapp-md-bot"],
+  "keywords": ["Zenor", "whatsapp-bot", "whatsapp-md-bot"],
   "repository": "https://github.com/thegrounder254/Zenor_XMD",
   "stack": "container",
   "env": { 
     "SESSION_ID": {
-      "description": "Ensure your session Id starts with Carl;;;",
+      "description": "Ensure your session Id starts with Zenor~;;;",
       "required": true,
       "value": ""
     },
