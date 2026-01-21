@@ -122,7 +122,7 @@ async function downloadLegacySession() {
         return false;
     }
 
-    const sessdata = config.SESSION_ID.split("Gifted~")[1];
+    const sessdata = config.SESSION_ID.split("Zenor~")[1];
 
     if (!sessdata || !sessdata.includes("#")) {
         console.error('Invalid SESSION_ID format! It must contain both file ID and decryption key.');
