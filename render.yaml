@@ -5483,10 +5483,10 @@
 
 services:
   - type: web
-    name: Buddy
+    name: Zenor
     env: node
     plan: free
-    repo: https://github.com/carl24tech/Buddy
+    repo: https://github.com/thegrounder254/Zenor_XMD
     branch: main
     buildCommand: npm install
     startCommand: npm start
