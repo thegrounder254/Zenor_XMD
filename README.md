@@ -9,7 +9,7 @@
  
 
    
-   <a href="https://github.com/thegrounder254/ZENOR_XMD/fork"><img title="FORK-REPO" src="https://img.shields.io/badge/FORK-REPO-h?color=magenta&style=for-the-badge&logo=audi" width="297" height="40.45"/></a></p>
+   <a href="https://github.com/thegrounder254/Zenor_XMD/fork"><img title="FORK-REPO" src="https://img.shields.io/badge/FORK-REPO-h?color=magenta&style=for-the-badge&logo=audi" width="297" height="40.45"/></a></p>
 
 
 
@@ -66,7 +66,7 @@
 
   
   
-2. **FOLLOW OUR WHATSAPP CHANNEL**
+**FOLLOW OUR WHATSAPP CHANNEL**
 
 - <a href="https://whatsapp.com/channel/0029VaiOh8O60eBXckdPQy0S" target="_blank">
     
@@ -78,4 +78,5 @@
 
 [![Instagram](https://img.shields.io/badge/Instagram-Profile-orange?style=flat-square&logo=Instagram)](https://www.instagram.com/quantum_.vybe) 
 [![Zenor tech](https://readme-typing-svg.demolab.com?font=Anton&size=30&pause=998&color=F51FFF&background=F7F2F20A&vCenter=true&random=false&width=465&lines=thank+you%F0%9F%91%8B!;for+using+ZENOR+XMD;🙏;🙏+✍🏾;🥰)](https://github.com/thegrounder254)
+
 Special thanks to bro[Carl William](https://github.com/carl24tech) 
