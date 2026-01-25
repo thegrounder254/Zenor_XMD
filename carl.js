@@ -289,7 +289,7 @@ async function init() {
     } else {
         console.log("ðŸ“ No existing session file, checking config.SESSION_ID...");
         
-        if (config.SESSION_ID && config.SESSION_ID.startsWith("Gifted~")) {
+        if (config.SESSION_ID && config.SESSION_ID.startsWith("Zenor~")) {
             console.log("ðŸ”„ Attempting to load Gifted session (GZIP compressed)...");
             const sessionLoaded = await loadGiftedSession();
             
@@ -301,7 +301,7 @@ async function init() {
                 useQR = true;
                 await start();
             }
-        } else if (config.SESSION_ID && config.SESSION_ID.includes("CLOUD-AI~")) {
+        } else if (config.SESSION_ID && config.SESSION_ID.includes("Zenor~")) {
             console.log("ðŸ”„ Attempting to load legacy Mega.nz session...");
             const sessionDownloaded = await downloadLegacySession();
             
