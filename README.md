@@ -60,17 +60,13 @@
 
 ## SUPPORT THE PROJECT 
 
-**JOIN OUR SUPPORT GROUP**
-
 <a href="https://chat.whatsapp.com/K8IfcWXLs0S0cpMTN1riyN" target="_blank">
     <img alt="CLICK HERE" src="https://img.shields.io/badge/ JOIN NOW 🚀 -25D366?style=for-the-badge&logo=whatsapp&logoColor=white" />
   </a>
 
   
-  
-2. **FOLLOW OUR WHATSAPP CHANNEL**
 
-- <a href="https://whatsapp.com/channel/0029VaiOh8O60eBXckdPQy0S" target="_blank">
+ <a href="https://whatsapp.com/channel/0029VaiOh8O60eBXckdPQy0S" target="_blank">
     <img alt="CLICK HERE " src="https://img.shields.io/badge/ FOLLOW NOW  -25D366?style=for-the-badge&logo=whatsapp&logoColor=white" />
   </a>
    
@@ -78,4 +74,4 @@
 <br>
 
 [![Instagram](https://img.shields.io/badge/Instagram-Profile-orange?style=flat-square&logo=Instagram)](https://www.instagram.com/quantum_.vybe) 
-[![matrix tech](https://readme-typing-svg.demolab.com?font=Anton&size=30&pause=998&color=F51FFF&background=F7F2F20A&vCenter=true&random=false&width=465&lines=thank+you%F0%9F%91%8B!;for+using+MATRIX+XMD;🙏;🙏+✍🏾;🥰)](https://github.com/Trevley/)
+[![zenor tech](https://readme-typing-svg.demolab.com?font=Anton&size=30&pause=998&color=F51FFF&background=F7F2F20A&vCenter=true&random=false&width=465&lines=thank+you%F0%9F%91%8B!;for+using+ZENOR+XMD;🙏;🙏+✍🏾;🥰)](https://github.com/thegrounder254/)
